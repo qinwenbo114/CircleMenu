@@ -3,7 +3,7 @@ An animated circle menu for Android
 # Demo
 ![](https://raw.githubusercontent.com/qinwenbo114/CircleMenu/master/demo/demo.gif)
 # Usage
-*Add the following to your project level build.gradle:
+* Add the following to your project level build.gradle:
 ```groovy
 allprojects {
     repositories {
@@ -11,13 +11,13 @@ allprojects {
     }
 }
 ```
-*Add this to your app build.gradle:
+* Add this to your app build.gradle:
 ```groovy
 dependencies {
     compile 'com.github.qinwenbo114:CircleMenu:v1.0'
 }
 ```
-*Add this to layout xml file:
+* Add this to layout xml file:
 ```xml
     <com.qinwenbo.circlemenulib.CircleMenu
         xmlns:customView = "http://schemas.android.com/apk/res-auto"
@@ -31,7 +31,7 @@ dependencies {
         customView:isClockwise="true"
         customView:period="500"/>
 ```
-*Add this to Activity/Fragment file:
+* Add this to Activity/Fragment file:
 ```java
         CircleMenu circleMenu = (CircleMenu) findViewById(R.id.yourViewID);
         List<MenuIcon> menuIcons = new ArrayList<>();
