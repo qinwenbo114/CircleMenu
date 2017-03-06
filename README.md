@@ -31,7 +31,7 @@ dependencies {
         customView:isClockwise="true"
         customView:period="500"/>
 ```
-*Add this to Activiy/Fragment file:
+*Add this to Activity/Fragment file:
 ```java
         CircleMenu circleMenu = (CircleMenu) findViewById(R.id.yourViewID);
         List<MenuIcon> menuIcons = new ArrayList<>();
