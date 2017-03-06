@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:gravity="center"
     tools:context="com.qinwenbo.circlemenu.TestCircleMenu">
 
     <com.qinwenbo.circlemenulib.CircleMenu
         android:id="@+id/testView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        customView:startAngle="60"
-        customView:openAngle="95"
+        customView:startAngle="0"
+        customView:openAngle="180"
         customView:menuIconRadius="30dp"
         customView:circlePathRadius="100dp"
-        customView:isClockwise="true"
+        customView:isClockwise="false"
         customView:period="500"/>
 </RelativeLayout>
