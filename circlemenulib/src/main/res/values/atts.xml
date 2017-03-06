@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleMenu">
+        <attr name="startAngle" format="float"/>
+        <attr name="openAngle" format="float"/>
+        <attr name="menuIconRadius" format="dimension"/>
+        <attr name="circlePathRadius" format="dimension"/>
+        <attr name="period" format="integer" />
+        <attr name="isClockwise" format="boolean" />
+    </declare-styleable>
+</resources>
