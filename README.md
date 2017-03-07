@@ -31,14 +31,14 @@ dependencies {
     customView:isClockwise="true"
     customView:period="500"/>
 ```
-    * Parameters specification
-        * startAngle: Start angle of big arc sweep area. X direction is 0°, Y direction is 90°. Value range is [0,360)
-        * openAngle: Sweep angel. Value range is [0,360).
-        * menuIconRadius: Radius of every menu icon.
-        * circlePathRadius: Radius of big arc.
-        * isClockwise: Sweep direction.
-        * period: Animation running time.
-    * You can preview the sweep area in Android Studio like the following image
+* Parameters specification
+    * startAngle: Start angle of big arc sweep area. X direction is 0°, Y direction is 90°. Value range is [0,360)
+    * openAngle: Sweep angel. Value range is [0,360).
+    * menuIconRadius: Radius of every menu icon.
+    * circlePathRadius: Radius of big arc.
+    * isClockwise: Sweep direction.
+    * period: Animation running time.
+* You can preview the sweep area in Android Studio like the following image
 ![](https://raw.githubusercontent.com/qinwenbo114/CircleMenu/master/demo-images/preview.png)
 
 * Add this to Activity/Fragment file:
