@@ -36,7 +36,7 @@ public class CirclePathEvaluator implements TypeEvaluator<PathPoint[]> {
         PathPoint[] pathPoints = new PathPoint[startValue.length];
         if (startValue.length == endValue.length) {
             for (int i = 0; i < startValue.length; i ++) {
-                // 计算大弧长度
+                // calculate the length of big arc
                 double bigArcLength = circleRadius * (endValue[i].getRadian() - startValue[i].getRadian());
                 double smallArcLength = circleRadius * Math.PI * 0.5;
                 double totalLength = bigArcLength + smallArcLength;
@@ -45,7 +45,7 @@ public class CirclePathEvaluator implements TypeEvaluator<PathPoint[]> {
                 float smallCircleRadius = circleRadius * 0.5f;
 
                 if (t < (smallArcLength / totalLength)) {
-                    // 处于小环上
+                    // In small sector
                     float firstCircleX = (float) (circleCenterX + smallCircleRadius * Math.cos(startValue[i].getRadian()));
                     float firstCircleY = (float) (circleCenterY + smallCircleRadius * Math.sin(startValue[i].getRadian()));
                     double openRadian = t * totalLength / smallCircleRadius;
@@ -59,7 +59,7 @@ public class CirclePathEvaluator implements TypeEvaluator<PathPoint[]> {
                     pathPoints[i] = new PathPoint(x, y, t);
 
                 } else {
-                    // 处于大环上
+                    // In big sector
                     float thirdCircleX = circleCenterX;
                     float thirdCircleY = circleCenterY;
                     double openRadian = (t * totalLength - smallArcLength) / bigCircleRadius;

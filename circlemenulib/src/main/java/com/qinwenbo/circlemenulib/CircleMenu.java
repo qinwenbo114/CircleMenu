@@ -122,6 +122,10 @@ public class CircleMenu extends View {
         viewBorder[3] = Math.max(Math.max(smallCircleBorder[3], bigCircleBorder[3]), menuCircleRadius);
     }
 
+    /**
+     * Set menu icons, this function should be called by user once this view is initialized.
+     * @param menuIcons menu icons list, there should be two menus at least
+     */
     public void setMenuIcons(List<MenuIcon> menuIcons) {
         this.menuIcons = menuIcons;
         menuCount = menuIcons.size();
@@ -179,6 +183,13 @@ public class CircleMenu extends View {
         setMeasuredDimension(width, height);
     }
 
+    /**
+     * Calculate small sector border
+     * @param isClockwise sweep direction
+     * @param startRadian start radian of sweep area
+     * @param radius big circle radius
+     * @return the coordinates of min rect which surround the small sector. float[left, top, right, bottom]
+     */
     private float[] calculateSmallCircleBorder(boolean isClockwise, double startRadian, float radius) {
         float[] coordinate = new float[4]; // left, top, right, bottom
         double modeStartRadian = startRadian % (.5 * Math.PI);
@@ -202,6 +213,14 @@ public class CircleMenu extends View {
         return coordinate;
     }
 
+    /**
+     * Calculate big sector border
+     * @param isClockwise sweep direction
+     * @param startRadian start radian of sweep area
+     * @param openRadian open radian of sweep area
+     * @param radius big circle radius
+     * @return the coordinates of min rect which surround the big sector. float[left, top, right, bottom]
+     */
     private float[] calculateBigCircleBorder(boolean isClockwise, double startRadian, double openRadian, float radius) {
         float[] coordinate = new float[4]; // left, top, right, bottom
         double modeStartRadian = startRadian % (.5 * Math.PI);
@@ -443,12 +462,24 @@ public class CircleMenu extends View {
         return true;
     }
 
+    /**
+     * Checking if the specified point is in the specified circle area.
+     * @param circleRadius circle radius
+     * @param circleCenterX X-coordinate of circle origin
+     * @param circleCenterY Y-coordinate of circle origin
+     * @param x X-coordinate of specified point
+     * @param y Y-coordinate of specified point
+     * @return True: n area, False: not in area
+     */
     private boolean inCircleArea(float circleRadius, float circleCenterX, float circleCenterY, float x, float y) {
         float x1 = x - circleCenterX;
         float y1 = y - circleCenterY;
         return (x1 * x1 + y1 * y1 < circleRadius * circleRadius);
     }
 
+    /**
+     * Call this function to open menu.
+     */
     private void openMenu() {
 
         ObjectAnimator animator = ObjectAnimator.ofObject(this, "path", new CirclePathEvaluator(circlePathRadius, viewCircleCenterX, viewCircleCenterY, CirclePathEvaluator.OPEN, isClockwise), startPathPoints, endPathPoints);
@@ -462,6 +493,9 @@ public class CircleMenu extends View {
         }
     }
 
+    /**
+     * Call this function to close menu.
+     */
     private void closeMenu() {
 
         ObjectAnimator animator = ObjectAnimator.ofObject(this, "path", new CirclePathEvaluator(circlePathRadius, viewCircleCenterX, viewCircleCenterY, CirclePathEvaluator.CLOSE, isClockwise), startPathPoints, endPathPoints);
@@ -475,6 +509,10 @@ public class CircleMenu extends View {
         }
     }
 
+    /**
+     * Reflection method called by openMenu or closeMenu.
+     * @param pathPoints start and end points of animation.
+     */
     public void setPath(PathPoint[] pathPoints) {
 
         runningPoints = pathPoints;
@@ -501,6 +539,10 @@ public class CircleMenu extends View {
 
     }
 
+    /**
+     * Switch menu.
+     * @param menuIndex the index you added in MenuIcon List
+     */
     public void switchMenu(int menuIndex) {
         if (menuStatus == CLOSED) {
             lastIndex = menuIndex;
@@ -522,14 +564,30 @@ public class CircleMenu extends View {
         }
     }
 
+    /**
+     * Interface definition for a callback to be invoked when menu is switched.
+     */
     public interface OnMenuSwitchListener {
+        /**
+         * Called when menu is switched.
+         * @param menuStatus 0:OPENING, 2:OPENED, 3:CLOSING, 4:CLOSED
+         * @param currentMenuIndex The index you added in MenuIcon List.
+         */
         void onMenuSwitch(int menuStatus, int currentMenuIndex);
     }
 
+    /**
+     * Register a callback to be invoked when menu is switched.
+     * @param onMenuSwitchListener The callback that will run
+     */
     public void setOnMenuSwitchListener(OnMenuSwitchListener onMenuSwitchListener) {
         this.onMenuSwitchListener = onMenuSwitchListener;
     }
 
+    /**
+     * Get current menu index.
+     * @return current menu index
+     */
     public int getCurrentMenuIndex() {
         return currentIndex;
     }
