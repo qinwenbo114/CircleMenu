@@ -31,16 +31,17 @@ dependencies {
     customView:isClockwise="true"
     customView:period="500"/>
 ```
-    * Parameters specification
-    startAngle: Start angle of big arc sweep area. X direction is 0°, Y direction is 90°. Value range is [0,360)
-    openAngle: Sweep angel. Value range is [0,360).
-    menuIconRadius: Radius of every menu icon.
-    circlePathRadius: Radius of big arc.
-    isClockwise: Sweep direction.
-    period: Animation running time.
 
-    * You can preview the sweep area in Android Studio like the following image
-![](https://raw.githubusercontent.com/qinwenbo114/CircleMenu/master/demo-images/preview.png)
+    *  Parameters specification
+        * startAngle: Start angle of big arc sweep area. X direction is 0°, Y direction is 90°. Value range is [0,360)
+        * openAngle: Sweep angel. Value range is [0,360).
+        * menuIconRadius: Radius of every menu icon.
+        * circlePathRadius: Radius of big arc.
+        * isClockwise: Sweep direction.
+        * period: Animation running time.
+
+    *  You can preview the sweep area in Android Studio like the following image
+        ![](https://raw.githubusercontent.com/qinwenbo114/CircleMenu/master/demo-images/preview.png)
 
 * Add this to Activity/Fragment file:
 ```java
@@ -59,3 +60,18 @@ circleMenu.setOnMenuSwitchListener(new CircleMenu.OnMenuSwitchListener() {
     }
 });
 ```
+
+# License
+Copyright 2017 Qinwenbo
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
